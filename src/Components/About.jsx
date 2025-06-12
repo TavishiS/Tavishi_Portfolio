@@ -26,7 +26,7 @@ const About = () => {
                     <span className='w-96'>
                         <h1 className='text-xl md:text-2xl font-semibold leading-normal'>Passionate coder</h1>
                         <p>
-                            I love solving problems through coding and am proficient in languages like C++ and Python for DSA.I also have experience working with databases such as MongoDB, MongoDB Atlas and MySQL. I have 
+                            I love solving problems through coding and am proficient in languages like C++ and Python for DSA.I also have experience working with databases such as MongoDB, MongoDB Atlas and MySQL.
                         </p>
                     </span>
                     </div>
