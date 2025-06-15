@@ -16,7 +16,7 @@ const Home = () => {
       <button className='mt-5 md:mt-10 text-white py-2 px-3 text-sm md:text-lg md:py-2 md:px-4 hover:opacity-85 duration-300 hover:scale-105 font-semibold rounded-3xl bg-[#465697]'><a href="#Footer">Contact Me!</a></button>
       </div>
       <div className='ml-72'>
-        <img className="w-3/4 rounded-3xl" src={monkey2} alt="Tavishi's Portfolio Image" />
+        <img className="w-3/4 rounded-3xl" src={tavishi_portfolio_img} alt="Tavishi's Portfolio Image" />
       </div>
     </div>
   )
