@@ -19,7 +19,7 @@ const Education = () => {
               </p>
               <p className="text-sm md:text-base mt-2">
                 Gained strong foundations in Data structures, Algorithms, Web
-                development and Software Engineering. I also developed communication and socializing skills here and owe a lot to my college.
+                development and Software Engineering. I also developed communication and socializing skills here and owe a lot to my college...
               </p>
             </div>
           </div>
