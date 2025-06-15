@@ -1,5 +1,5 @@
 import React from 'react'
-import monkey2 from '../assets/monkey2.jpg'
+import tavishi_portfolio_img from '../assets/tavishi_portfolio_img.jpg'
 import TextChange from '../TextChange'
 
 const Home = () => {
