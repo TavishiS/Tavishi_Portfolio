@@ -18,6 +18,7 @@ import {
   SiMysql,
   SiGooglecolab,
   SiGooglecloud,
+  SiRender
 } from "react-icons/si";
 
 import skillful_emoji from "../assets/skillful_emoji.png";
@@ -121,10 +122,10 @@ const Skills = () => {
                 <SiGooglecolab className="text-yellow-400" size={24} />
                 <span>Google Colab</span>
               </div>
-              {/* <div className="flex items-center gap-2">
-                <SiGooglecloud className="text-blue-400" size={24} />
-                <span>Google Cloud</span>
-              </div> */}
+              <div className="flex items-center gap-2">
+                <SiRender className="text-blue-400" size={24} />
+                <span>Render</span>
+              </div>
             </div>
           </div>
 
