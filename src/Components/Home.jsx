@@ -5,16 +5,16 @@ import TextChange from '../TextChange';
 
 const Home = () => {
   return (
-    <div className='text-white flex flex-col-reverse md:flex-row w-full justify-between items-center p-10 md:p-20 min-h-screen'>
+    <div className='text-white flex flex-col-reverse md:flex-row w-full justify-between items-center px-10 py-10 md:px-20 md:py-0 min-h-[60vh] md:min-h-screen'>
       
       {/* TEXT CONTENT SECTION */}
       <motion.div 
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className='md:w-2/4 pt-10 md:pt-0'
+        className='md:w-2/4 pt-6 md:pt-0 text-center md:text-left'
       >
-        <h1 className='text-3xl md:text-6xl font-bold flex leading-normal tracking-tighter'>
+        <h1 className='text-3xl md:text-6xl font-bold flex justify-center md:justify-start leading-normal tracking-tighter'>
           <TextChange/>
         </h1>
         <br />
@@ -47,7 +47,7 @@ const Home = () => {
         className='md:w-2/4 flex justify-center md:justify-end md:pr-10'
       >
         <img 
-          className="w-3/4 max-w-sm md:max-w-md rounded-3xl shadow-[0_0_40px_rgba(255,255,255,0.1)] border border-white/10" 
+          className="w-1/2 md:w-3/4 max-w-sm md:max-w-md rounded-3xl shadow-[0_0_40px_rgba(255,255,255,0.1)] border border-white/10" 
           src={tavishi_portfolio_img} 
           alt="Tavishi's Portfolio" 
         />
