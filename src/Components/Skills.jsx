@@ -1,137 +1,149 @@
 import React from "react";
-import {
-  IoLogoJavascript,
-  IoLogoPython,
-  IoLogoHtml5,
-  IoLogoCss3,
-  IoLogoReact,
-  IoLogoGithub,
-  IoConstructOutline,
-  IoServerOutline,
-  IoCodeSlashOutline,
+import { motion } from "framer-motion";
+import { 
+  IoLogoPython, IoLogoHtml5, IoLogoCss3, IoLogoJavascript, IoLogoGithub,
+  IoCodeSlashOutline, IoTerminalOutline, IoCloudUploadOutline, IoLayersOutline
 } from "react-icons/io5";
-import {
-  SiCplusplus,
-  SiFlask,
-  SiDjango,
-  SiMongodb,
-  SiMysql,
-  SiGooglecolab,
-  SiGooglecloud,
-  SiRender
+import { 
+  SiCplusplus, SiC, SiFlask, SiFastapi, SiFlutter, SiMongodb, 
+  SiPostgresql, SiSqlite, SiFirebase, SiRender, SiLinux
 } from "react-icons/si";
-
 import skillful_emoji from "../assets/skillful_emoji.png";
 
 const Skills = () => {
-  return (
-    <div id='Skills' className="text-white md:flex overflow-hidden items-start bg-black shadow-xl mx-0 md:mx-20 bg-opacity-30 rounded-lg p-12">
-      
-      {/* Left: Image */}
-      <div className="mb-10 md:mb-0 md:mr-12 flex justify-center">
-        <img src={skillful_emoji} alt="Skills Emoji" className="h-72 md:h-96 rounded-2xl shadow-lg" />
-      </div>
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { 
+      opacity: 1, scale: 1, 
+      transition: { duration: 0.5, staggerChildren: 0.1 } 
+    },
+  };
 
-      {/* Right: Skills Content */}
-      <div className="w-full md:w-2/3">
-        <h2 className="text-2xl md:text-4xl font-bold mb-16">Skills 💻</h2>
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
-        <div className="space-y-10">
-          {/* Programming */}
-          <div>
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-3">
-              <IoCodeSlashOutline className="text-yellow-400" size={28} />
-              Programming
-            </h3>
-            <div className="flex flex-wrap gap-6">
-              <div className="flex items-center gap-2">
-                <SiCplusplus className="text-blue-500" size={24} />
-                <span>C++</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <IoLogoPython className="text-yellow-300" size={24} />
-                <span>Python</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <IoLogoJavascript className="text-yellow-400" size={24} />
-                <span>JavaScript</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Web Skills */}
-          <div>
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-3">
-              <IoLogoHtml5 className="text-orange-500" size={28} />
-              Web Development
-            </h3>
-            <div className="flex flex-wrap gap-6">
-              <div className="flex items-center gap-2">
-                <SiFlask className="text-gray-200" size={24} />
-                <span>Flask</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <IoLogoHtml5 className="text-orange-500" size={24} />
-                <span>HTML</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <IoLogoCss3 className="text-blue-500" size={24} />
-                <span>CSS</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <SiDjango className="text-green-600" size={24} />
-                <span>Django</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <IoLogoReact className="text-cyan-400" size={24} />
-                <span>React</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Database Skills */}
-          <div>
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-3">
-              <IoServerOutline className="text-green-300" size={28} />
-              Database Management
-            </h3>
-            <div className="flex flex-wrap gap-6">
-              <div className="flex items-center gap-2">
-                <SiMysql className="text-blue-600" size={24} />
-                <span>MySQL</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <SiMongodb className="text-green-500" size={24} />
-                <span>MongoDB</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Tools */}
-          <div>
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-3">
-              <IoConstructOutline className="text-pink-400" size={28} />
-              Tools & Platforms
-            </h3>
-            <div className="flex flex-wrap gap-6">
-              <div className="flex items-center gap-2">
-                <IoLogoGithub className="text-white" size={24} />
-                <span>GitHub</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <SiGooglecolab className="text-yellow-400" size={24} />
-                <span>Google Colab</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <SiRender className="text-blue-400" size={24} />
-                <span>Render</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
+  const SkillBadge = ({ icon: Icon, name, color }) => (
+    <div className="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-lg border border-white/10 hover:border-white/30 transition-all cursor-default group my-5">
+      <Icon className={`${color} group-hover:scale-110 transition-transform`} size={20} />
+      <span className="text-sm text-gray-300">{name}</span>
     </div>
+  );
+
+  return (
+    <motion.div
+      id="Skills"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
+      className="text-white flex flex-col items-center justify-center bg-black bg-opacity-40 shadow-2xl mx-0 md:mx-20 rounded-3xl p-8 md:p-16 backdrop-blur-md overflow-hidden font-jakarta my-20"
+    >
+      {/* HEADER SECTION */}
+      <motion.div className="w-full max-w-6xl mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
+        <div className="flex items-center gap-2 font-mono text-2xl md:text-4xl text-green-400">
+          <span className="text-gray-500">{">"}</span>
+          <h2 className="font-bold tracking-tight text-white">my_arsenal</h2>
+          <motion.span 
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 1, repeat: Infinity }}
+            className="w-3 h-8 md:h-10 bg-green-500"
+          ></motion.span>
+        </div>
+        <img 
+          src={skillful_emoji} 
+          alt="Skills Emoji" 
+          className="h-24 md:h-32 object-contain animate-bounce-slow" 
+          style={{ animationDuration: '4s' }}
+        />
+      </motion.div>
+
+      {/* SKILLS GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+        
+        {/* LANGUAGES */}
+        <motion.div variants={cardVariants} whileHover={{ y: -5 }} className="bg-white bg-opacity-5 p-6 rounded-2xl border border-white/10 hover:border-green-500/50 transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <IoCodeSlashOutline className="text-green-400" size={24} />
+            <h3 className="font-bold text-lg">Languages</h3>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <SkillBadge icon={SiCplusplus} name="C++ (Proficient)" color="text-blue-500" />
+            <SkillBadge icon={SiC} name="C" color="text-blue-400" />
+            <SkillBadge icon={IoLogoPython} name="Python" color="text-yellow-400" />
+          </div>
+        </motion.div>
+
+        {/* WEB & MOBILE */}
+        <motion.div variants={cardVariants} whileHover={{ y: -5 }} className="bg-white bg-opacity-5 p-6 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <IoLayersOutline className="text-blue-400" size={24} />
+            <h3 className="font-bold text-lg">Web & Mobile</h3>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <SkillBadge icon={SiFlask} name="Flask" color="text-gray-100" />
+            <SkillBadge icon={SiFastapi} name="FastAPI" color="text-emerald-400" />
+            <SkillBadge icon={SiFlutter} name="Flutter" color="text-cyan-400" />
+            <SkillBadge icon={IoLogoHtml5} name="HTML" color="text-orange-500" />
+            <SkillBadge icon={IoLogoCss3} name="CSS" color="text-blue-500" />
+            <SkillBadge icon={IoLogoJavascript} name="JS" color="text-yellow-300" />
+          </div>
+        </motion.div>
+
+        {/* DATABASES */}
+        <motion.div variants={cardVariants} whileHover={{ y: -5 }} className="bg-white bg-opacity-5 p-6 rounded-2xl border border-white/10 hover:border-emerald-500/50 transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <IoTerminalOutline className="text-emerald-400" size={24} />
+            <h3 className="font-bold text-lg">Databases</h3>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <SkillBadge icon={SiSqlite} name="SQL" color="text-blue-400" />
+            <SkillBadge icon={SiMongodb} name="MongoDB Atlas" color="text-green-500" />
+            <SkillBadge icon={SiPostgresql} name="PostgreSQL" color="text-blue-300" />
+          </div>
+        </motion.div>
+
+        {/* SYSTEMS & LOW LEVEL */}
+        <motion.div variants={cardVariants} whileHover={{ y: -5 }} className="bg-white bg-opacity-5 p-6 rounded-2xl border border-white/10 hover:border-orange-500/50 transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <SiLinux className="text-orange-400" size={24} />
+            <h3 className="font-bold text-lg">Systems</h3>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <SkillBadge icon={IoCodeSlashOutline} name="OOPs" color="text-purple-400" />
+            <SkillBadge icon={IoTerminalOutline} name="Linux CLI" color="text-gray-300" />
+            <SkillBadge icon={IoLayersOutline} name="File Handling" color="text-red-400" />
+          </div>
+        </motion.div>
+
+        {/* CLOUD & DEPLOYMENT */}
+        <motion.div variants={cardVariants} whileHover={{ y: -5 }} className="bg-white bg-opacity-5 p-6 rounded-2xl border border-white/10 hover:border-yellow-500/50 transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <IoCloudUploadOutline className="text-yellow-400" size={24} />
+            <h3 className="font-bold text-lg">Cloud</h3>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <SkillBadge icon={SiFirebase} name="Firebase" color="text-orange-400" />
+            <SkillBadge icon={SiRender} name="Render" color="text-blue-400" />
+            <SkillBadge icon={IoLogoGithub} name="GitHub Actions" color="text-white" />
+          </div>
+        </motion.div>
+
+        {/* COLLABORATION */}
+        <motion.div variants={cardVariants} whileHover={{ y: -5 }} className="bg-white bg-opacity-5 p-6 rounded-2xl border border-white/10 hover:border-gray-100/50 transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <IoLogoGithub className="text-gray-100" size={24} />
+            <h3 className="font-bold text-lg">Collab</h3>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <SkillBadge icon={IoLogoGithub} name="GitHub" color="text-white" />
+          </div>
+        </motion.div>
+
+      </div>
+    </motion.div>
   );
 };
 

@@ -1,53 +1,75 @@
-import React from 'react'
-import ProjectCard from './ProjectCard'
-import emo2mov from '../assets/emo2mov.jpeg'
-import todo from '../assets/todo.jpg'
-import face from '../assets/face.jpg'
-import sms from '../assets/sms.png'
-import quiz from '../assets/quiz.jpg'
+import React from 'react';
+import { motion } from 'framer-motion';
+import ProjectCard from './ProjectCard';
+
+import kafkaImg from '../assets/kafka.jpeg'; 
+import moodflixImg from '../assets/emo2mov.jpeg'; 
+import campusImg from '../assets/app.png'; // Using a preview image for CampusThrift
 
 const Projects = () => {
-    let title1="MoodFlix";
-    let main1="MoodFlix, a web application which allows users to give text, voice or form input indicating their current mood and feeling, and in response, they would be recommended five movies best matching their mood.";
-    // let rep_link1="https://drive.google.com/file/d/1CKf-eS-6zelOUNZjccgGAk4T8lJCCOoP/view?usp=sharing";
-    let git_link1="https://github.com/TavishiS/Emotion2Movies";
-
-    let title2="ToDo App";
-    let main2="A basic ToDo web application featuring CRUD operations on SQLite database. The app supports multi-user usability and Login/Logout functionality.";
-    // let rep_link2="https://drive.google.com/file/d/1Al5SDT1WemJvKrf1phb90J7WMwxmjOF6/view?usp=sharing";
-    let git_link2="https://github.com/TavishiS/ToDo-app";
-
-
-    let title3="Face Identification";
-    let main3="Identification of a person (in the LFW Dataset) with the help of their image using traditional Machine Learning techniques such as Decision Tree, KNN, Clustering, Random Forest, ANN, and Naive Bayes.";
-    // let rep_link3="https://drive.google.com/file/d/192QmAw0FQnduo9rlO0CQY1cNzSw58aLM/view?usp=sharing";
-    let git_link3="https://github.com/AgarwalMayank2/Face_Identification";
-
-    let title4="Student Management System";
-    let main4="A simple Student Management System for an institution using File Handling in C, to store, view, sort and search for student records.";
-    // let rep_link4="https://drive.google.com/file/d/1wi7FIahZ9VJQBIQ1wKDSEIh70xkLyWan/view?usp=sharing";
-    let git_link4="https://github.com/TavishiS/Student_Management_System";
-
-    let title5="Quiz Game";
-    let main5="A Quiz consisting of 3 levels-Easy, Medium and Hard. The player would dynamically get to know if their answer is correct or not.";
-    // let rep_link5="https://drive.google.com/file/d/1_MPI-S6gmgn6iZLWdfGm3yomuhLBicr8/view?usp=sharing";
-    let git_link5="https://github.com/TavishiS/Quiz_Game";
+  const projectData = [
+    {
+      title: "CampusThrift",
+      main: "A high-performance C2C marketplace app designed exclusively for college students. It bridges the gap between senior students who wish to declutter and junior students who need essential items at affordable prices.",
+      bannerImg: campusImg,
+      git_link: "https://github.com/TavishiS/campus_thrift",
+      demo_link: "https://drive.google.com/file/d/1_DdDTaFCfTq8SGkjlNf5nObsXGc8XPDw/view?usp=sharing", // Paste your Drive link here
+      tags: ["Flutter", "Firebase", "NoSQL", "Mobile"]
+    },
+    {
+      title: "Distributed Event Streamer",
+      main: "A Kafka-inspired streaming engine which uses a crash-safe, file-backed append-only log featuring OS-level file locks for concurrency and hash-based partitioning to simulate industrial consumer-group scaling.",
+      bannerImg: kafkaImg,
+      git_link: "https://github.com/TavishiS/Kafka",
+      tags: ["Python", "Systems", "Concurrency", "Kafka-Core"]
+    },
+    {
+      title: "MoodFlix",
+      main: "Developed an emotion-to-movie recommendation engine using HuggingFace's Wav2Vec2 transformer to detect human emotions from voice/text, fetching metadata from TMDB and suggesting top 5 movies best matching the user's mood.",
+      bannerImg: moodflixImg,
+      git_link: "https://github.com/TavishiS/Emotion2Movies",
+      tags: ["Flask", "Huggingface", "Embedding Models"]
+    }
+  ];
 
   return (
-    <div className='text-white md:flex overflow-hidden items-centermd:flex-wrap md:justify-center bg-black shadow-xl mx-0 md:mx-20 bg-opacity-30 rounded-lg p-12'>
-    <div id='Projects' className='p-10 md:p-24 text-white'>
-        <h1 className='text-2xl md:text-4xl text-white font-bold'>Projects 📽</h1>
-        <div className='py-12 px-8 flex flex-wrap gap-5'>
-            <ProjectCard title={title1} main={main1} bannerImg={emo2mov} git_link={git_link1}/> {/*rep_link={rep_link1}*/}
-            <ProjectCard title={title2} main={main2} bannerImg={todo} git_link={git_link2}/>
-            <ProjectCard title={title3} main={main3} bannerImg={face} git_link={git_link3}/>
-            <ProjectCard title={title4} main={main4} bannerImg={sms} git_link={git_link4}/>
-            <ProjectCard title={title5} main={main5} bannerImg={quiz} git_link={git_link5}/>
+    <motion.div 
+      id="Projects"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-white flex flex-col bg-black bg-opacity-40 shadow-2xl mx-0 md:mx-20 rounded-3xl p-8 md:p-16 backdrop-blur-md overflow-hidden font-jakarta my-10"
+    >
+      {/* HEADER SECTION - Now Aligned Left */}
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="w-full max-w-6xl mb-12"
+      >
+        <div className="flex items-center gap-2 font-mono text-2xl md:text-4xl text-blue-400">
+          <span className="text-gray-500">{">"}</span>
+          <h2 className="font-bold tracking-tight text-white">key_projects.sh</h2>
+          <motion.span 
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 1, repeat: Infinity }}
+            className="w-3 h-8 md:h-10 bg-blue-500"
+          ></motion.span>
         </div>
-      
-    </div>
-    </div>
-  )
-}
+        <p className="text-gray-500 mt-4 ml-6 md:ml-10 text-lg">
+          The projects closest to my heart 💗
+        </p>
+      </motion.div>
 
-export default Projects
+      {/* PROJECTS GRID */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 w-full max-w-7xl mx-auto">
+        {projectData.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
+export default Projects;
