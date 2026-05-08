@@ -61,6 +61,7 @@ const Education = () => {
             <div className="w-full md:w-5/12 ml-10 md:ml-0 md:pl-8 mt-4 md:mt-0 bg-white bg-opacity-5 p-6 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 shadow-lg">
               <h3 className="text-xl md:text-2xl font-bold text-blue-400">IIT Jodhpur 🎓</h3>
               <p className="text-sm italic text-gray-400 mt-1">B.Tech in CSE (2023 - Present)</p>
+              <p className="text-sm italic text-gray-400 mt-1">Current CGPA : 8.58 /10</p>
               <p className="text-sm md:text-base mt-4 text-gray-300 leading-relaxed">
                 Focusing on high-level Software Engineering and DSA. Beyond academics, I've spent my time here growing as a person, honing my communication, and diving deep into the tech culture.
               </p>
